@@ -6,4 +6,4 @@ public class Rectangle extends Shape{
 	public void area() {
 		res = w * h;
 	}
-}
+} 
