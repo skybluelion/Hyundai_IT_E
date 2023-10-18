@@ -19,12 +19,15 @@ public class Main2 {
 		st = new StringTokenizer(br.readLine());
 		
 		int[] Operater = new int[4]; // plus, minus, mul, div
+		int sum = 0;
 		for(int i = 0; i < 4; i++) {
 			Operater[i] = Integer.parseInt(st.nextToken());
+			sum += Operater[i];
 		}
 		
 		int min = Integer.MAX_VALUE;
 		int max = Integer.MIN_VALUE;
+		
 		
 		
 	}
