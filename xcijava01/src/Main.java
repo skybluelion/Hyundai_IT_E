@@ -5,7 +5,9 @@ import java.io.InputStreamReader;
 public class Main {
 	
 	static int[] arr;
-	static int sum, cnt;
+	static int sum, N;
+	static int min = Integer.MAX_VALUE;
+	static boolean[] isVisited;
 	
 	public static void main(String[] args) throws NumberFormatException, IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -18,11 +20,24 @@ public class Main {
 		}
 		
 		sum = 0;
-		cnt = 0;
-		//재귀
+		
+		for(int i = 0; i < N; i++) {
+			sol(i, 1);			
+		}
+		System.out.println(min);
 	}
 	
-	public static void sol() {
+	public static void sol(int startIdx, int cnt) {
 		
+		
+		if(cnt == N) {
+			min = Math.min(min, sum);
+			return;
+		}
+		
+		for(int i = 0; i < N; i++) {
+			sum += arr[i] + sum;
+			sol(startIdx, i);
+		}
 	}
 }
