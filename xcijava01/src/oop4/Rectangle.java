@@ -7,3 +7,4 @@ public class Rectangle extends Shape{
 		res = w * h;
 	}
 } 
+ 
