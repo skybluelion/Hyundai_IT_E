@@ -6,6 +6,7 @@ import java.util.Properties;
 public class TVTest {
 
 	public static void main(String[] args) {
+		System.out.println("정격전압 : " + TV.voltage);
 		TV tv1 = new HyundaiTV(); // upcasting
 		tv1.powerOn();
 		tv1.channelUp();

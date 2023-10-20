@@ -1,43 +1,44 @@
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
+
 
 public class Main {
-	
-	static int[] arr;
-	static int sum, N;
-	static int min = Integer.MAX_VALUE;
-	static boolean[] isVisited;
-	
-	public static void main(String[] args) throws NumberFormatException, IOException {
-		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		
-		int N = Integer.parseInt(br.readLine());
-		arr = new int[N];
-		
-		for(int i = 0; i < N; i++) {
-			arr[i] = Integer.parseInt(br.readLine());
+	final static int N = 10000;
+	static boolean[] self = new boolean[N + 1];
+	public static void main(String[] args) throws IOException {
+
+		for(int i = 1; i <= N; i++) {
+			if(!self[i]) {
+				selfCheck(i);
+			}
 		}
 		
-		sum = 0;
-		
-		for(int i = 0; i < N; i++) {
-			sol(i, 1);			
+		for(int i = 1; i <= N; i++) {
+			if(!self[i]) {
+				System.out.println(i);
+			}
 		}
-		System.out.println(min);
+
 	}
 	
-	public static void sol(int startIdx, int cnt) {
-		
-		
-		if(cnt == N) {
-			min = Math.min(min, sum);
+	public static void selfCheck(int num) {
+		int next = 0;
+		if(num < 10) {
+			next = num + num;
+		} else if(num < 100) {
+			next = num + num / 10 + num % 10;		
+		} else if(num < 1000) {
+			next = num + num / 100 + (num % 100) / 10 + num % 10;
+		} else if(num < 10000) {
+			next = num + num / 1000 + (num % 1000) / 100 + (num % 100) / 10 + num % 10;
+		} else if(num == 10000) {
+			self[num] = true;
 			return;
 		}
 		
-		for(int i = 0; i < N; i++) {
-			sum += arr[i] + sum;
-			sol(startIdx, i);
+		if(next > 10000) {
+			return;
 		}
+		self[next] = true;
+		selfCheck(next);
 	}
 }

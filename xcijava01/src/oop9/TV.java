@@ -1,6 +1,9 @@
 package oop9;
 
 public interface TV {
+	
+	int voltage = 220;
+	
 	public abstract void powerOn(); //abstract 생략가능
 	public void powerOff();
 	public void channelUp();
