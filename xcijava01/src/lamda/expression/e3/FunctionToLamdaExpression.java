@@ -1,4 +1,4 @@
-package lamda.expression;
+package lamda.expression.e3;
 
 interface A{ // 입력 X, 리턴 X
 	void method1();

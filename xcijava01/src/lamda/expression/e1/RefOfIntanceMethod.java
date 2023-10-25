@@ -1,5 +1,6 @@
 package lamda.expression.e1;
 
+@FunctionalInterface
 interface A{
 	void abc();
 }
