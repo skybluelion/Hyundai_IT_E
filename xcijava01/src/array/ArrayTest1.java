@@ -22,7 +22,7 @@ public class ArrayTest1 {
 		for (int temp : n) {
 			System.out.println(temp);
 		}
-		
+		 
 	}
 
 }
