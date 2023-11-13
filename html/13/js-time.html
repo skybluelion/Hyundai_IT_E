@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>What time is it?</title>
+	<style>
+		body {
+			font-size:2em;
+			text-align: center;
+		}
+	</style>
+</head>
+<body>
+	<script>
+		var now = new Date();
+		var display = now.toLocaleTimeString();
+		document.write("현재 시각은 " + display);	
+
+		let jk = {
+			name: '김동욱',
+			birth: 1999
+		};
+		document.write(`<br><br>${jk.name} 님의 출생년도는 ${jk.birth}`);
+		jk.hobby = '프로그래밍';
+		document.write(`<br><br>${jk.name} 님의 취미는 ${jk.hoby}`);
+	</script>
+</body>
+</html>
+

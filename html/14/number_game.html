@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <!-- 
+    Math.random을 사용해서 임의의 수 1~ 100 사이의 난수 발생
+    prompt로 1~100 사이의 정수 입력
+    do ~ while문, break;
+  -->
+   <script>
+    const x = parseInt(Math.random() * 100) + 1;
+    let you;
+    let cnt = 0;
+
+    do{
+      you = parseInt(prompt ("1~100 사이의 정수를 입력해서 숫자를 맞춰주세요.", ""));
+      if(you > x) {
+        cnt++;
+        alert("up");
+      }else if(you < x) {
+        cnt++;
+        alert("down");
+      }else if(you === x) break;
+    }while(you !== x)
+    alert("축하합니다. " + cnt + "번 만에 맞추셨습니다.");
+
+   </script>
+</body>
+</html>

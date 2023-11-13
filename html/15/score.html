@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    table, th, td {
+      border:1px solid #ccc;
+      border-collapse: collapse;
+    }
+    th { padding:5px 10px; }
+    td { padding:5px 20px 30px 5px; }
+  </style>
+</head> 
+<body>
+  <script>
+    let score = [
+      ['이름', '국어', '영어', '수학', '철학', '총점', '평균'],
+      ['신해철', 100, 90, 80, 70],
+      ['유재하',  90, 80, 70, 60],
+      ['서태지',  80, 70, 60, 50]
+    ];
+    
+    function createTable() {
+      // 테이블 엘리먼트 생성
+      let table = document.createElement('table');
+      let thead = document.createElement('thead');
+      let headerRow = document.createElement('tr');
+      for (let i = 0; i < score[0].length; i++) {
+        let th = document.createElement('th');
+        th.textContent = score[0][i];
+        headerRow.appendChild(th);
+      }
+      thead.appendChild(headerRow);
+      table.appendChild(thead);
+
+      // 데이터 행 생성
+      let tbody = document.createElement('tbody');
+      for (let i = 1; i < score.length; i++) {
+        let row = document.createElement('tr');
+        for (let j = 0; j < score[i].length; j++) {
+          let cell = document.createElement('td');
+          cell.textContent = score[i][j];
+          row.appendChild(cell);
+        }
+        tbody.appendChild(row);
+      }
+      table.appendChild(tbody);
+
+      // body에 테이블 추가
+      document.body.appendChild(table);
+    }
+
+    createTable();
+  </script>
+</body>
+</html>

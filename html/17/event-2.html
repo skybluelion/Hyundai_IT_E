@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DOM event 객체</title>
+  <style>
+    #container {
+      width:300px;
+      margin:10px auto;
+    }
+  </style>
+</head>
+<body>
+  <div id="container">
+    <img src="images/cup-1.png" id="cup">		
+  </div>
+
+  <script>
+    var cup = document.querySelector("#cup");
+    var clickCount = 0;  // 클릭 횟수를 저장하는 변수
+
+    cup.onclick = changePic;
+
+    function changePic() {
+      // 클릭 횟수에 따라 이미지 변경
+      if (clickCount % 2 === 0) {
+        cup.src = "images/cup-2.png";
+      } else {
+        cup.src = "images/cup-1.png";
+      }
+
+      clickCount++;  // 클릭 횟수 증가
+    }
+  </script>
+</body>
+</html>
