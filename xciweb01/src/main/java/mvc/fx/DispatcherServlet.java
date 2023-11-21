@@ -13,14 +13,15 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import pilot.controller.FormController;
-import pilot.controller.ProcessController;
-
 @WebServlet(
-   urlPatterns = {"/pilot/*"},
+   urlPatterns = {
+		   "/pilot/*",
+		   "/game/*",
+		   "/article/*"
+		   },
    loadOnStartup = 10)
 public class DispatcherServlet extends HttpServlet {
-   /*
+   
    private Map<String, AbstractController> controllerMap = new HashMap<>();
    @Override
    public void init() throws ServletException {
@@ -28,9 +29,12 @@ public class DispatcherServlet extends HttpServlet {
       Properties prop = new Properties();
       
       try {
+    	  
          prop.load(new FileInputStream(this.getClass().getResource("dispatcher-servlet.properties").getPath()));
+ //        prop.load(new FileInputStream("src/main/java/mvc/fx/dispatcher-servlet.properties"));
+         
          for(Object oKey : prop.keySet()) {
-            String key = ((String)oKey).trim();
+            String key = ((String)oKey).trim(); //공백처리
             Class<?> className = null;
             try {
                className = Class.forName(prop.getProperty(key).trim());
@@ -45,7 +49,7 @@ public class DispatcherServlet extends HttpServlet {
          e.printStackTrace();
       }
    }
-   */
+   
 	
    @Override
    protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -55,19 +59,10 @@ public class DispatcherServlet extends HttpServlet {
       String contextPath = request.getContextPath();
       System.out.println(contextPath); //프로젝트 이름
       String action = requestURI.substring(contextPath.length());
-      AbstractController controller = null;
-      ModelAndView mav = null;
-      if(action.equals("/pilot/form")) {
-    	  controller = new FormController();
-    	  mav = controller.handleRequestInternal(request, response);
-      } else if(action.equals("/pilot/process")) {
-    	  controller = new ProcessController();
-    	  mav = controller.handleRequestInternal(request, response);
-      }
-      /*
+
       AbstractController controller = controllerMap.get(action);
-      ModelAndView mav = controller.handleRquestInternal(request, response);
-      */
+      ModelAndView mav = controller.handleRequestInternal(request, response);
+      
       if (mav != null) {
          
          String viewName = mav.getViewName();

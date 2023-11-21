@@ -12,7 +12,9 @@ public class ModelAndView {
 	public ModelAndView(String viewName) {
 		setViewName(viewName);
 	}
-
+	public ModelAndView(String key, Object value) {
+		addObject(key, value);
+	}
 	public ModelAndView(String viewName, String key, Object value) {
 		setViewName(viewName);
 		addObject(key, value);

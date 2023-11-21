@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    /* 기본 선택자 */
+    .class01 {
+      background-color: silver;
+    }
+    #fruit {
+      background-color: transparent;
+    }
+    /* 복합 선택자 */
+    ul li {
+      color: rgb(255, 0, 17); /* 자손 */
+    }
+    ul > li {
+      background-color: pink;/* 자식 */
+    }
+    li#기준 ~ li {
+      color: blueviolet; /* 바로 뒤에 형제들만. */
+    }
+    li#기준 + li {
+      color: rgb(226, 141, 43); /* 바로 뒤에 형제 하나만. */
+    }
+
+    /* 속성 선택자 */
+    li[title] {
+      color: olive; /* 속성 존재 여부 */
+    }
+    li[title = "할인"] {
+      color: aquamarine; /* 속성 값이 같다면 */
+    }
+    li[title ~= "무료배송"]::after {
+      content: "[무료배송]"; /* 공백 기준으로 포함된다면 */
+      color: black;
+    }
+    li[title $= "품절"] {
+      color: gray;/* 속성 값이 끝난다면 */
+    }
+    li[title ^= "hot"] {
+      font-weight: bold;
+      color: red;/* 시작된다면 */
+    }
+    li[title *= "무료"] {
+      text-decoration: underline;/* 포함된다면 */
+    }
+
+    li[title ~= "할인"] li[title ~= "무료배송"] {
+      color: black;/* and */
+    }
+    
+    li[title ~= "할인"], li[title ~= "무료배송"] {
+      color: darkblue;/* or */
+    }
+
+    /* 가상 선택자 */
+    #fruit > ol > li:nth-child(2n) {background-color: lime;}
+    #fruit > ol > li:hover {
+      text-decoration: underline;
+    } 
+  </style>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+</head>
+<body>
+  <ul>
+    <li>요소1</li>
+    <li class="class01">요소2</li>
+    <li class="class01" id="기준">요소3</li>
+    <li>요소4</li>
+    <li id="fruit">요소5
+      <ol>
+        <li title="">사과</li>
+        <li title="할인">배</li>
+        <li title="할인 무료배송">바나나</li>
+        <li title="무료배송 품절">딸기</li>
+        <li title="hot 무료배송">복숭아</li>
+        <li title="품절">수박</li>
+        <li title="품절">수박</li>
+        <li><a href="#https://www.naver.com" target="_blank" data-url="">외부 쇼핑</a></li>
+      </ol>
+    </li>
+    <li>요소6</li>
+  </ul>
+  <h1>Header</h1>
+  <script>
+    $('li[title $= "품절"]').on('click', function() {
+      alert('품절입니다.');
+    });
+    document.querySelector('li[title $= "배송"]').addEventListener('click', function() {
+      alert('무료배송입니다.');
+    });
+    $('h1').on('click', function(){
+      $('body').append('<h1>Header</h1>');
+    });
+
+    document.querySelector('h1').addEventListener('click',function() {
+      document.querySelector('body').appendChild(document.createElement)
+    });
+  </script>
+</body>
+</html>

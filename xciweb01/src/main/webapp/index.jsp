@@ -9,5 +9,7 @@
 <body>
 <h1>mvc</h1>
 <a href="pilot/form">form</a><br/>
+<a href="game/ready">game</a><br/>
+<a href="article/list">list</a><br/>
 </body>
 </html>
