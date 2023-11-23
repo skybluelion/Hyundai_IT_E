@@ -1,2 +1,21 @@
 {
+  "terminal.integrated.env.osx": {
+    "NODEJS_HOME": "",
+    "NODE_PATH": "/Users/jun/Desktop/dev/Hyundai_IT_E/labs_react/node_modules/",
+    "PATH": "${env:PATH}:/Users/jun/.nvm/versions/node/v20.9.0/bin"
+  },
+  "code-runner.runInTerminal": true,
+  "liveServer.settings.host": "localhost",
+  "liveServer.settings.port": 80,
+  "editor.wordWrap": "on",
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "prettier.printWidth": 120,
+  "prettier.useTabs": false,
+  "prettier.tabWidth": 2,
+  "prettier.trailingComma": "all",
+  "prettier.singleQuote": true,
+  "prettier.semi": true,
+  "prettier.bracketSpacing": true,
+  "git.ignoreLimitWarning": true
 }
