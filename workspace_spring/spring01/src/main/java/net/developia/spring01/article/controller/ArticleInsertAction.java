@@ -6,15 +6,17 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.AbstractController;
 
+import lombok.AllArgsConstructor;
 import lombok.extern.java.Log;
 import net.developia.spring01.article.dto.ArticleDTO;
 import net.developia.spring01.article.service.ArticleService;
 
 @Log
+@AllArgsConstructor
 public class ArticleInsertAction extends AbstractController {
 	//private static final Logger log = LoggerFactory.getLogger(ArticleInsertAction.class);
 
-	ArticleService service = ArticleService.getInstance();
+	ArticleService service;
 	
 	@Override
 	public ModelAndView handleRequestInternal(HttpServletRequest request, HttpServletResponse response) {

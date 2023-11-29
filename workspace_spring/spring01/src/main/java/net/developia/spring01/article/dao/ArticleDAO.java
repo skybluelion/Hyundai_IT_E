@@ -13,18 +13,13 @@ import net.developia.spring01.article.dto.ArticleDTO;
 
 @Log
 public class ArticleDAO {
-	private static ArticleDAO dao = new ArticleDAO();
 	
-	private ArticleDAO() {
+	public ArticleDAO() {
 		try {
 			Class.forName("net.sf.log4jdbc.DriverSpy");
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		}
-	}
-	
-	public static ArticleDAO getInstance() {
-		return dao;
 	}
 
 	private Connection getConnection() throws SQLException {

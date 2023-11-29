@@ -23,13 +23,31 @@
 	
 	<context:component-scan base-package="net.developia.spring01" />
 	
-	
+<!--	
 	<beans:bean name="/game/ready" class="net.developia.spring01.mvc.ReadyController" />
 	<beans:bean name="/game/result" class="net.developia.spring01.mvc.ResultController" />
 	
 	<beans:bean name="/hello" class="net.developia.spring01.SpringMVC" />
+-->
+
+	
+	<beans:bean name="articleDao" class="net.developia.spring01.article.dao.ArticleDAO"/>
+
+	<beans:bean name="articleService" class="net.developia.spring01.article.service.ArticleService">
+		<beans:constructor-arg ref="articleDao"/>
+	</beans:bean>
+
+	<beans:bean name="/article/list" class="net.developia.spring01.article.controller.ArticleList" >
+		<beans:constructor-arg ref="articleService"/>
+	</beans:bean>
+
+	<beans:bean name="/article/detail" class="net.developia.spring01.article.controller.ArticleDetail">
+		<beans:constructor-arg ref="articleService"/>
+	</beans:bean>
+ 	
 	<beans:bean name="/article/insert" class="net.developia.spring01.article.controller.ArticleInsert" />
-	<beans:bean name="/article/insertAction" class="net.developia.spring01.article.controller.ArticleInsertAction" />
-	<beans:bean name="/article/list" class="net.developia.spring01.article.controller.ArticleList" />
-	<beans:bean name="/article/detail" class="net.developia.spring01.article.controller.ArticleDetail" />
+	<beans:bean name="/article/insertAction" class="net.developia.spring01.article.controller.ArticleInsertAction">
+		<beans:constructor-arg ref="articleService"/>
+ 	</beans:bean>
+
 </beans:beans>

@@ -9,15 +9,11 @@ import net.developia.spring01.article.dto.ArticleDTO;
 
 @Log
 public class ArticleService {
-	//private static final Logger log = LoggerFactory.getLogger(ArticleService.class);
 	
-	private static ArticleService service = new ArticleService();
+	private ArticleDAO dao;
 	
-	private ArticleDAO dao = ArticleDAO.getInstance();
-	private ArticleService() {}
-	
-	public static ArticleService getInstance() {
-		return service;
+	public ArticleService(ArticleDAO dao) {
+		this.dao = dao;
 	}
 
 	public void insertArticle(ArticleDTO articleDTO) throws SQLException {

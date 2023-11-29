@@ -8,15 +8,25 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.AbstractController;
 
+import lombok.AllArgsConstructor;
 import lombok.extern.java.Log;
 import net.developia.spring01.article.dto.ArticleDTO;
 import net.developia.spring01.article.service.ArticleService;
 
 @Log
+@AllArgsConstructor
 public class ArticleList extends AbstractController{
 	
-	ArticleService service = ArticleService.getInstance();
+	//ArticleService service = ArticleService.getInstance();
+	ArticleService service;
+	public void setService(ArticleService service) {
+		this.service = service;
+	}
 	
+//	public ArticleList(ArticleService service) {
+//		this.service = service;
+//	}
+
 	@Override
 	public ModelAndView handleRequestInternal(HttpServletRequest request, HttpServletResponse response) {
 		
