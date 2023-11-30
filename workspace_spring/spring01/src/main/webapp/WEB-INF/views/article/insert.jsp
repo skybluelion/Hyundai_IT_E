@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form name="myform" method="post" action="insertAction">
+<form name="myform" method="post">
 <table>
 	<caption>게시물 글쓰기</caption>
 <tr>

@@ -16,12 +16,13 @@
 	<resources mapping="/resources/**" location="/resources/" />
 
 	<!-- Resolves views selected for rendering by @Controllers to .jsp resources in the /WEB-INF/views directory -->
-	<!-- <beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+	<beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<beans:property name="prefix" value="/WEB-INF/views/" />
 		<beans:property name="suffix" value=".jsp" />
-	</beans:bean> -->
+	</beans:bean>
 	
-	<context:component-scan base-package="net.developia.spring01" />
+	<context:component-scan base-package="net.developia.spring01.article" />
+
 	
 <!--	
 	<beans:bean name="/game/ready" class="net.developia.spring01.mvc.ReadyController" />
@@ -31,6 +32,8 @@
 -->
 
 	
+
+<!-- 
 	<beans:bean name="articleDao" class="net.developia.spring01.article.dao.ArticleDAO"/>
 
 	<beans:bean name="articleService" class="net.developia.spring01.article.service.ArticleService">
@@ -40,14 +43,14 @@
 	<beans:bean name="/article/list" class="net.developia.spring01.article.controller.ArticleList" >
 		<beans:constructor-arg ref="articleService"/>
 	</beans:bean>
-
+	 
 	<beans:bean name="/article/detail" class="net.developia.spring01.article.controller.ArticleDetail">
 		<beans:constructor-arg ref="articleService"/>
 	</beans:bean>
- 	
+
 	<beans:bean name="/article/insert" class="net.developia.spring01.article.controller.ArticleInsert" />
 	<beans:bean name="/article/insertAction" class="net.developia.spring01.article.controller.ArticleInsertAction">
 		<beans:constructor-arg ref="articleService"/>
  	</beans:bean>
-
+-->
 </beans:beans>

@@ -8,10 +8,13 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.stereotype.Repository;
+
 import lombok.extern.java.Log;
 import net.developia.spring01.article.dto.ArticleDTO;
 
 @Log
+@Repository
 public class ArticleDAO {
 	
 	public ArticleDAO() {

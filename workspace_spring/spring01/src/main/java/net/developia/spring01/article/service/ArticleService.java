@@ -3,11 +3,15 @@ package net.developia.spring01.article.service;
 import java.sql.SQLException;
 import java.util.List;
 
+import org.springframework.stereotype.Service;
+
 import lombok.extern.java.Log;
 import net.developia.spring01.article.dao.ArticleDAO;
 import net.developia.spring01.article.dto.ArticleDTO;
 
+
 @Log
+@Service
 public class ArticleService {
 	
 	private ArticleDAO dao;
