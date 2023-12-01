@@ -23,7 +23,8 @@
 	
 
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean"
-		p:dataSource-ref="dataSource" />
+		p:dataSource-ref="dataSource" 
+		p:typeAliasesPackage="net.developia.spring03.domain"/>
 	
 	<mybatis-spring:scan base-package="net.developia.spring03.mapper" />
 </beans>
